@@ -1,0 +1,15 @@
+{
+    "name": "dearkeven/bitcoin-php",
+    "autoload": {
+        "psr-4": {
+            "Dearkeven\\BitcoinPhp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "keventodev",
+            "email": "kevenpro.la@gmail.com"
+        }
+    ],
+    "require": {}
+}
