@@ -1,53 +1,56 @@
-<?php       
+<?php
 
-namespace model;
+require 'config/Database.php';
 
-use PDOException;
+class Currency extends Database
+{
 
-class Currency {
     protected $name;
     protected $valueEUR;
     protected $date;
 
+    public function __construct()
+    {
+    }
+
     // get
-    public function getName(){
+    public function getName()
+    {
         return $this->name;
-    }     
-    public function getValueEUR(){
+    }
+    public function getValueEUR()
+    {
         return $this->valueEUR;
-    }     
-    public function getDate(){
+    }
+    public function getDate()
+    {
         return $this->date;
-    } 
-    
+    }
+
     // set
 
-    public function setName(string $n){
+    public function setName(string $n)
+    {
         $this->name = $n;
     }
 
-    public function setValueEUR(int $v){
+    public function setValueEUR(float $v)
+    {
         $this->valueEUR = $v;
     }
 
-    public function setDate(int $d){
+    public function setDate(DateTime $d)
+    {
         $this->date = $d;
     }
 
-    public function getAll(){
-        try{
-            $pdo = Database::connect();
-            $stmt = $pdo->query('SELECT name, ValueEUR FROM crypto');
+    public function getAll()
+    {
+        try {
+            $pdo = Database::Connect();
+            $stmt = $pdo->query('SELECT name, valueEUR FROM currency');
             return $stmt->fetchAll(\PDO::FETCH_ASSOC);
-        } catch (PDOException $e){
-            
+        } catch (PDOException $e) {
         }
     }
-
 }
-
-
-
-
-
-?>
